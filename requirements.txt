@@ -1,0 +1,9 @@
+# First, pip install torch==1.12 torchvision
+# Then, install pytorch-geometric from https://pytorch-geometric.readthedocs.io/en/latest/notes/installation.html using pip
+hydra-core
+nested_dict
+numpy
+pandas
+wcmatch
+ogb
+pot

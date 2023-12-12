@@ -1,0 +1,53 @@
+gckm_layer1:
+  s: 64 # "number of components in layer"
+  kernel: rbf #"kernel: 'rbf', 'poly', 'npoly', 'linear',
+  kernelparam: 27.56  #"kernel parameter of each level: RBF or Laplace bandwidth or offset term of (normalized) polynomial kernel",
+  kernelparam2: 2 #degree for poly kernel
+  gamma: 2.163  #set gamma higher to give more importance to this level
+  aggr:
+    type: sum #mean, sum, gcn, no_aggr
+gckm_layer2:
+  s: 64
+  kernel: rbf
+  kernelparam: 0.1651
+  kernelparam2: 2
+  gamma: 1
+  aggr:
+    type: sum
+SemiSup_layer:
+  gamma: 1.14  #set gamma higher to give more importance to this level
+  eta: 1
+  lam1: 1
+  lam2: 0.0501 #set lam2 lower to give more importance to classification error
+  kernel1:
+    type: rbf
+    param: 0.08305
+    param2: 2
+  kernel2:
+    type: wwl #'wwl', 'none'
+    dataset: inferred
+    param1: 1e-3
+    param2: 0 #number of WL-iterations in case of wwl
+    kappa: 0.5 #value between 0 (kernel1) and 1 (kernel2)
+    rho: 1 #value between 0 (addition) and 1 (multiplication)
+layerwisein: True  #"layer-wise initialization"
+maxiterations: 10 #type=int, "maximum number of training inner iterations", default=10
+valmetric: cos_sim # "val_acc", "cos_sim", or "comb_metric"
+tags: [ ]
+dataset: squirrel #'chameleon', 'squirrel', 'cora', 'citeseer', 'pubmed', 'ogbn-arxiv'
+datasplit: semi_fix_fewlabels # 'semi_fix_fewlabels', 'standard', 'val_subsets'
+preprocess: false #normalizes the node features as a preprocessing step
+
+#FIXED:
+early_stopping_patience: 15
+save_best: true # saves best weights not final
+lr: 1 #"learning rate", default=1.0, type=float
+to_undirected: true
+seed: 42
+svd_type: svd #lanczos or svd
+svd_tol: 0 # tolerance for Lanczos method for SVD
+
+
+defaults:
+  - _self_
+  - hydra: custom
