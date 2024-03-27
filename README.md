@@ -8,7 +8,7 @@ We present a deep Graph Convolutional Kernel Machine(GCKM) for semi-supervised n
 
 ## Useful links
 - [preprint](https://arxiv.org/abs/2301.13764), includes Appendix
-- [proceedings AAAI-24](link coming soon)
+- [proceedings AAAI-24](https://ojs.aaai.org/index.php/AAAI/article/view/28949)
 - [project page](http://www.sonnyachten.com/gckm)
 
 ## Cite 
